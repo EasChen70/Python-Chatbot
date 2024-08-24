@@ -1,5 +1,35 @@
-{"intents": [
-    {"tag": "greetings",
-    "patterns": ["hello", "hey", "hi", "hola", "sup", "yo", "what's up"],
-    "response": ["hello", "hey", "How can I help you?"]}
-]}
+{
+    "intents": [
+      {
+        "tag": "greetings",
+        "patterns": ["hello", "hey", "hi", "hola", "sup", "yo", "what's up"],
+        "response": ["hello", "hey", "How can I help you?"]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["bye", "see you later", "goodbye", "catch you later", "talk to you soon"],
+        "response": ["Goodbye!", "See you later!", "Have a great day!"]
+      },
+      {
+        "tag": "thanks",
+        "patterns": ["thanks", "thank you", "appreciate it", "thanks a lot"],
+        "response": ["You're welcome!", "No problem!", "Glad I could help!"]
+      },
+      {
+        "tag": "age",
+        "patterns": ["how old are you?", "what's your age?", "age?"],
+        "response": ["I'm a computer program, so I don't have an age.", "I'm as old as the code that created me!"]
+      },
+      {
+        "tag": "name",
+        "patterns": ["what's your name?", "who are you?", "what should I call you?"],
+        "response": ["I'm your friendly chatbot!", "You can call me Chatbot."]
+      },
+      {
+        "tag": "weather",
+        "patterns": ["what's the weather like?", "is it sunny today?", "will it rain tomorrow?"],
+        "response": ["I can't check the weather, but I hope it's nice where you are!", "I suggest checking your local weather app."]
+      }
+    ]
+  }
+  

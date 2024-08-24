@@ -74,18 +74,17 @@ train_x = training[:, :len(words)]
 train_y = training[:, len(words):]
 
 model = tf.keras.Sequential()
-model.add(tf.keras.layers.Input(shape=(len(train_x[0]),)))
-model.add(tf.keras.layers.Dense(128, activation='relu'))
+model.add(tf.keras.layers.Dense(128, input_shape=(len(train_x[0]),), activation = 'relu'))
 model.add(tf.keras.layers.Dropout(0.5))
 model.add(tf.keras.layers.Dense(64, activation='relu'))
 model.add(tf.keras.layers.Dropout(0.5))
-model.add(tf.keras.layers.Dense(len(classes), activation='softmax'))  # Correct number of units
+model.add(tf.keras.layers.Dense(len(train_y[0]), activation='softmax'))  
 
 
 SGD = tf.keras.optimizers.SGD(learning_rate = 0.01, momentum = 0.9, nesterov = True)
 model.compile(loss = 'categorical_crossentropy', optimizer = SGD, metrics = ['accuracy'])
 
-model.fit(train_x, train_y, epochs = 200, batch_size = 5, verbose = 1)
-model.save('chatbot_model.keras')
+hist = model.fit(train_x, train_y, epochs = 200, batch_size = 5, verbose = 1)
+model.save('chatbot_model.keras', hist)
 
 print('Done')
